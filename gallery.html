@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Theme Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            perspective: 1000px;
+            overflow-x: hidden;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 50px auto;
+            max-width: 90%;
+        }
+
+        .image-container {
+            position: relative;
+            margin: 20px;
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+            text-align: center;
+        }
+
+        .image-container:hover {
+            animation-play-state: paused;
+        }
+
+        .image-container img {
+            width: 480px;
+            height: 853px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.1) rotateY(10deg) rotateX(10deg);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .hearts div {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: red;
+            clip-path: polygon(50% 0%, 61% 16%, 98% 16%, 70% 38%, 82% 73%, 50% 58%, 18% 73%, 30% 38%, 2% 16%, 39% 16%);
+            opacity: 0.8;
+            animation: fall 5s linear infinite;
+        }
+
+        .hearts div:nth-child(odd) {
+            background: pink;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-100vh) translateX(0) scale(1);
+            }
+            to {
+                transform: translateY(100vh) translateX(50px) scale(0.5);
+            }
+        }
+
+        .hearts div:nth-child(1) {
+            left: 10%;
+            animation-duration: 6s;
+        }
+
+        .hearts div:nth-child(2) {
+            left: 30%;
+            animation-duration: 4s;
+        }
+
+        .hearts div:nth-child(3) {
+            left: 50%;
+            animation-duration: 5s;
+        }
+
+        .hearts div:nth-child(4) {
+            left: 70%;
+            animation-duration: 7s;
+        }
+
+        .hearts div:nth-child(5) {
+            left: 90%;
+            animation-duration: 3s;
+        }
+
+        .lyrics {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Brush Script MT', cursive;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            font-weight: bold;
+            font-style: italic;
+            line-height: 1.5;
+            width: 50%;
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .lyrics span {
+            display: inline-block;
+            font-size: 24px;
+            animation: scrollText 10s linear infinite;
+        }
+
+        @keyframes scrollText {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        .audio-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 10px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .audio-controls input[type="range"] {
+            width: 150px;
+        }
+
+        .love-button {
+            position: fixed;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: pink;
+            color: #D5006D;
+            border: 4px inset #D5006D;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 20px;
+        }
+
+        .love-button:hover {
+            background-color: #D5006D;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <audio id="background-music" autoplay loop>
+        <source src="criminal.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="hearts">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="gallery">
+        <div class="image-container">
+            <img src="IMG_20240724_153821_152.jpg" alt="Image 1">
+        </div>
+         </div>
+        <div class="image-container">
+            <img src="IMG_20240918_200604_829.jpg" alt="Image 2">
+        </div> </div>
+        <div class="image-container">
+            <img src="IMG_20240918_200717_746.jpg" alt="Image 3">
+        </div> </div>
+        <div class="image-container">
+            <img src="IMG_20240918_200908_325.jpg" alt="Image 4">
+        </div> </div>
+        <div class="image-container">
+            <img src="IMG_20240918_200910_856.jpg" alt="Image 5">
+        </div>
+    </div>
+
+    <div class="gallery">
+        <div class="image-container">
+            <img src="IMG_20240918_200910_856.jpg" alt="Image 6">
+        </div> </div>
+        <div class="image-container">
+            <img src="Snapchat-1404387093.jpg" alt="Image 7">
+        </div> </div>
+        <div class="image-container">
+            <img src="Snapchat-1451978052.jpg" alt="Image 8">
+        </div> </div>
+        <div class="image-container">
+            <img src="Snapchat-74565769.jpg" alt="Image 9">
+        </div> </div>
+        <div class="image-container">
+            <img src="feb 10 meet.jpg" alt="Image 10">
+        </div><div ass="image-container">
+            <img src="feb 10 meet2.jpg" alt="Image 11">
+        </div><div class="image-container">
+            <img src="feb 10 meet3.jpg" alt="Image 12">
+        </div> </div>
+         <div class="image-container">
+        <img src="gog1.jpg" alt="Image 13">
+    </div> </div>
+    <div class="image-container">
+        <img src="gog2.jpg" alt="Image 14">
+    </div> </div>
+    <div class="image-container">
+        <img src="gog3.jpg" alt="Image 15">
+    </div> </div>
+    <div class="image-container">
+        <img src="gog4.jpg" alt="Image 16">
+    </div>
+    <div class="image-container">
+        <img src="gog5.jpg" alt="Image 17">
+    </div>
+    <div class="image-container">
+        <img src="gog.6jpg" alt="Image 18">
+    </div>
+    <div class="image-container">
+        <img src="gog7.jpg" alt="Image 19">
+    </div>
+    <div class="image-container">
+        <img src=gog8.jpg"" alt="Image 20">
+    </div>
+    <div class="image-container">
+        <img src="gog9.jpg" alt="Image 21">
+    </div>
+    <div class="image-container">
+        <img src="gog10.jpg" alt="Image 22">
+    </div>
+    <div class="image-container">
+        <img src="gog11.jpg" alt="Image 23">
+    </div>
+    <div class="image-container">
+        <img src="gog12.jpg" alt="Image 24">
+    </div>
+    <div class="image-container">
+        <img src="gog13.jpg" alt="Image 25">
+    </div>
+    <div class="image-container">
+        <img src="gog14.jpg" alt="Image 26">
+    </div>
+    <div class="image-container">
+        <img src="gog15.jpg" alt="Image 27">
+    </div>
+    <div class="image-container">
+        <img src="gog16.jpg" alt="Image 28">
+    </div>
+    <div class="image-container">
+        <img src="gog.jpg" alt="Image 29">
+    </div>
+    <div class="image-container">
+        <img src=gog.jpg"" alt="Image 30">
+    </div>
+    <div class="image-container">
+        <img src="gog.jpg" alt="Image 31">
+    </div>
+    <div class="image-container">
+        <img src="gog.jpg" alt="Image 32">
+    </div>
+    <div class="image-container">
+        <img src="494830033_1374022837246333_7599166792377073470_n.jpg" alt="Image 33">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 34">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 35">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 36">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 37">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 38">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 39">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 40">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 41">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 42">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 43">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 44">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 45">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 46">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 47">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 48">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 49">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 50">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 51">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 52">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 53">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 54">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 55">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 56">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 57">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 58">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 59">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 60">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 61">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 62">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 63">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 64">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 65">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 66">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 67">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 68">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 69">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 70">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 71">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 72">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 73">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 74">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 75">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 76">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 77">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 78">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 79">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 80">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 81">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 82">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 83">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 84">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 85">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 86">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 87">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 88">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 89">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 90">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 91">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 92">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 93">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 94">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 95">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 96">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 97">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 98">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 99">
+    </div>
+    <div class="image-container">
+        <img src="" alt="Image 100">
+    </div>
+       
+    </div>
+
+    <button class="love-button" onclick="window.location.href='comment.html'">Talk to me my Love</button>
+
+    <div class="lyrics">
+        <span>
+            "Ay, bring it on, bring it on, bring it on<br>
+            It's the night, it's the night, it's the night<br>
+            I was born to run<br>
+            Ay, I'm a criminal<br>
+            And I can't make it right<br>
+            Just make me look good<br>
+            Just do me right<br>
+            I'm the one you love to hate<br>
+            But you can't make me wrong<br>
+            No, you can't make me fake<br>
+            And I don't play along<br>
+            Bring it on, bring it on, bring it on<br>
+            It's the life, it's the life, it's the life<br>
+            I'm a criminal<br>
+            Ay, I was born this way<br>
+            And the road I take<br>
+            I will walk alone<br>
+            For a love that's fake<br>
+            Bring it on, bring it on, bring it on<br>
+            It's the night, it's the night, it's the night<br>
+            I was born to run<br>
+            Ay, I'm a criminal"
+        </span>
+    </div>
+</body>
+</html>
